@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Татьяна — Fashion & Lifestyle</title>
+
+  <!-- Шрифты и иконки -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+      background: #fdf9f7;
+      color: #2b2b2b;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: url('index.JPG') center/cover no-repeat;
+      filter: grayscale(100%) brightness(60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 20px;
+      max-width: 100%;
+    }
+
+    .hero-content h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      margin-bottom: 0.3em;
+    }
+
+    .hero-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: #FFD700;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .social-icons {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      z-index: 2;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+      color: #2b2b2b;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+      animation: pulse 2.5s infinite;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255,255,255,0.4); }
+      70% { box-shadow: 0 0 0 15px rgba(255,255,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+    }
+
+    /* ABOUT */
+    section { padding: 100px 20px; }
+
+    .about {
+      background: #fff;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .about h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2.4rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .about div {
+      margin-bottom: 2.5rem;
+    }
+
+    .about i {
+      font-size: 2rem;
+      color: #a0725a;
+      margin-bottom: 0.5rem;
+    }
+
+    .about h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #a0725a;
+      margin-bottom: 0.5rem;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4a4a4a;
+    }
+
+    .about blockquote {
+      font-style: italic;
+      background: #f7f2ef;
+      padding: 1.5rem;
+      border-left: 4px solid #d3b8aa;
+      margin: 3rem auto 2rem;
+      max-width: 700px;
+      color: #6a4a3d;
+    }
+
+    /* CAROUSEL */
+    .carousel-infinite {
+      background: #fff7f3;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 40px 0;
+    }
+
+    .carousel-track {
+      display: inline-block;
+      animation: scroll 40s linear infinite;
+    }
+
+    .carousel-item {
+      display: inline-block;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      min-width: 180px;
+      margin: 0 10px;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    .carousel-item i {
+      font-size: 2rem;
+      color: #a0725a;
+      margin-bottom: 10px;
+    }
+
+    .carousel-item p {
+      font-size: 1rem;
+      color: #4a4a4a;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* COLLAB */
+    .collab {
+      background: #fff7f3;
+      padding: 80px 20px;
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .collab h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .collab p {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .collab .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #2b2b2b;
+      color: #fff;
+      padding: 0.9rem 1.8rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      animation: pulse 2s infinite;
+      transition: transform 0.2s;
+    }
+
+    .collab .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #fdf9f7;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    footer a {
+      margin: 0 10px;
+      color: #2b2b2b;
+      font-size: 1.5rem;
+    }
+
+    footer p {
+      color: #888;
+      font-size: 0.95rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content fade-in">
+      <h1>Татьяна</h1>
+      <p>fashion & lifestyle, честность, эстетика, принятие</p>
+    </div>
+    <div class="social-icons fade-in">
+      <a href="https://www.instagram.com/tyaby.tarby?igsh=MTZsMm5nMGRtOGlmbQ==" target="_blank"><i class="bi bi-instagram"></i></a>
+      <a href="https://t.me/@wowetotanyaturbo" target="_blank"><i class="bi bi-telegram"></i></a>
+      <a href="https://www.tiktok.com/" target="_blank"><i class="bi bi-tiktok"></i></a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about fade-in">
+    <h2>Про меня</h2>
+    <div>
+      <i class="bi bi-person-circle"></i>
+      <h3>Кто я</h3>
+      <p>Я — Татьяна, fashion-креатор и lifestyle-блогер. Создаю визуальный контент, который помогает девушкам почувствовать себя красивыми, уверенными и настоящими.</p>
+    </div>
+    <div>
+      <i class="bi bi-journal-richtext"></i>
+      <h3>Что я делаю</h3>
+      <p>Я создаю видео про красоту и стиль — сборы, преображения, образы «до/после», стильные аутфиты. Мой контент — это эстетика, лёгкость и визуальное удовольствие. Люблю динамику, нежные детали и тёплые оттенки.</p>
+    </div>
+    <div>
+      <i class="bi bi-heart-fill"></i>
+      <h3>Что мне близко</h3>
+      <p>Я верю: красота — в живости, любви к себе и искренности. Женственность может быть разной — главное быть собой: настоящей и уникальной.</p>
+    </div>
+    <blockquote>«Я не стремлюсь быть идеальной. Я хочу вдохновлять быть собой и получать от этого удовольствие.»</blockquote>
+  </section>
+
+  <!-- CAROUSEL -->
+  <section class="carousel-infinite fade-in">
+    <div class="carousel-track">
+      <div class="carousel-item"><i class="bi bi-camera-reels"></i><p>Reels</p></div>
+      <div class="carousel-item"><i class="bi bi-brush"></i><p>Макияж</p></div>
+      <div class="carousel-item"><i class="bi bi-person-standing"></i><p>До / После</p></div>
+      <div class="carousel-item"><i class="bi bi-bag-heart"></i><p>Аутфиты</p></div>
+      <div class="carousel-item"><i class="bi bi-magic"></i><p>GRWM</p></div>
+    </div>
+  </section>
+
+  <!-- COLLABORATION -->
+  <section class="collab fade-in">
+    <h2>Сотрудничество</h2>
+    <p>Открыта к сотрудничеству: реклама, съёмки, бартер, UGC-контент. Мне близки визуальность, честность и внимание к деталям. Я люблю работать с брендами, которым важен стиль, эстетика и тёплая, человечная подача.</p>
+    <p>Напишите — обсудим, как создать что-то красивое и живое вместе.</p>
+    <a href="#contact" class="btn"><i class="bi bi-chat-heart"></i> Предложить сотрудничество</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="fade-in">
+    <a href="https://instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+    <a href="https://t.me/" target="_blank"><i class="bi bi-telegram"></i></a>
+    <a href="https://www.tiktok.com/" target="_blank"><i class="bi bi-tiktok"></i></a>
+    <p>© Tatyana, 2025 — будь собой</p>
+  </footer>
+
+</body>
+</html>
